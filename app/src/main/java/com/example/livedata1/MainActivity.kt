@@ -18,24 +18,31 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViews() {
         var textView = findViewById<TextView>(R.id.tvNumber)
-        var buttonNext = findViewById<Button>(R.id.button1)
+        var buttonNext = findViewById<Button>(R.id.button_next)
+        var buttonprev = findViewById<Button>(R.id.button_prev)
         var progressBar = findViewById<ProgressBar>(R.id.progressBar)
         var questionText = findViewById<TextView>(R.id.tvQuestion)
 
 
-        progressBar.max = vmodel.questionCount
+        progressBar.max = vmodel.questionCount-1
 
         buttonNext.setOnClickListener {
            vmodel.nextClicked()
         }
+        buttonprev.setOnClickListener {
+            vmodel.prevClicked()
+        }
 
         val numberObserver = Observer<Int> { number ->
                 textView.text = number.toString()
-                progressBar.progress = number
+                progressBar.progress = number-1
         }
 
-        val buttonEnabledObserver = Observer<Boolean>{  enabled ->
+        val buttonNextEnabledObserver = Observer<Boolean>{  enabled ->
             buttonNext.isEnabled = enabled
+        }
+        val buttonPrevEnabledObserver = Observer<Boolean>{  enabled ->
+            buttonprev.isEnabled = enabled
         }
 
         val questionObserver = Observer<String>{ question ->
@@ -43,7 +50,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         vmodel.questionLiveData.observe(this , questionObserver)
-        vmodel.nextEnabledLiveData.observe(this , buttonEnabledObserver)
+        vmodel.nextEnabledLiveData.observe(this , buttonNextEnabledObserver)
+        vmodel.prevEnabledLiveData.observe(this , buttonPrevEnabledObserver)
         vmodel.numberLiveData.observe(this , numberObserver)
 
     }
