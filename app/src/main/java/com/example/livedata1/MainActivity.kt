@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         var questionText = findViewById<TextView>(R.id.tvQuestion)
 
 
-        progressBar.max = vmodel.questionCount-1
+        progressBar.max = vmodel.questionCount
 
         buttonNext.setOnClickListener {
            vmodel.nextClicked()
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         val numberObserver = Observer<Int> { number ->
                 textView.text = number.toString()
-                progressBar.progress = number-1
+                progressBar.progress = number
         }
 
         val buttonNextEnabledObserver = Observer<Boolean>{  enabled ->

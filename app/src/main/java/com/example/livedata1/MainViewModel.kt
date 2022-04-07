@@ -21,6 +21,7 @@ class MainViewModel  : ViewModel(){
         numberLiveData.value?.let{ number ->
             questionLiveData.value = QuestionRepository.questionList[number-1]
         }
+        checkNextPrev()
     }
 
     fun prevClicked() {
@@ -28,6 +29,7 @@ class MainViewModel  : ViewModel(){
         numberLiveData.value?.let{ number ->
             questionLiveData.value = QuestionRepository.questionList[number-1]
         }
+        checkNextPrev()
     }
     fun checkNextPrev(){
         nextEnabledLiveData.value=when(numberLiveData.value){
