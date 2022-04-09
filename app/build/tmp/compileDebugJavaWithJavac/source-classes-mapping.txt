@@ -1,2 +1,0 @@
-com/example/livedata1/BuildConfig.java
- com.example.livedata1.BuildConfig
