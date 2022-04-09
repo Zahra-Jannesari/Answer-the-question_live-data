@@ -1,0 +1,4 @@
+com/example/AnswerIt_LiveData/databinding/ActivityMainBinding.java
+ com.example.AnswerIt_LiveData.databinding.ActivityMainBinding
+com/example/AnswerIt_LiveData/BuildConfig.java
+ com.example.AnswerIt_LiveData.BuildConfig
