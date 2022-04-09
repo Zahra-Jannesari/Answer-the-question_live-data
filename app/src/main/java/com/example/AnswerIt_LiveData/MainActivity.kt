@@ -3,7 +3,7 @@ package com.example.AnswerIt_LiveData
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.example.AnswerIt_LiveData.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private val vmodel : MainViewModel by viewModels()
